@@ -181,8 +181,9 @@ def ask_ai_to_choose(question: str):
     response = client.chat.completions.create(
         model=model,
         max_tokens=300,
+        temperature=0,
         messages=[{"role": "user", "content": question}],
-        tools=[get_weather_schema,get_capital_schema, get_tool_schema_for_llm],
+        tools=[get_complete_weather_schema, get_capital_schema],
     )
 
 
